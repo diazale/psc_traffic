@@ -1,14 +1,3 @@
-# Import API key. Kept in a separate file for security.
-source("map_key.R")
-
-# Import libraries
-library(googleway)
-library(htmlwidgets)
-library(magick)
-library(tidyverse)
-#library(webshot) # webshot has been deprecated, using webshot2
-library(webshot2)
-
 # Latitude and longitude where the maps API will be pointed
 lat <- 41.822339
 lon <- -71.4075898
