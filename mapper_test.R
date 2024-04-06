@@ -78,4 +78,5 @@ webshot2::webshot(url = paste0(html_folder, "/", dat_time, ".html"),
                                 `dat_traffic`, "/",
                                 "south_water_st ", dat_time,".png"),
                   vwidth = 1280,
-                  vheight = 980)
+                  vheight = 980,
+                  delay=5)
