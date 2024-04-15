@@ -274,16 +274,15 @@ vehicle_vec <- c()
 for (o in ocr_text){
   if(grepl(kw, o, fixed = TRUE)==TRUE){
     
-    # Extract the narrative text
+    # Extract the vehicle text
     temp_str <- strsplit(o, kw_start, fixed = TRUE)
     temp_str <- strsplit(temp_str[[1]][2], kw_end, fixed = TRUE)
     temp_str <- trimws(temp_str[[1]][1])
     
-    # Add to the narrative text vector
+    # Add to the vehicle text vector
     vehicle_vec <- c(vehicle_vec, temp_str)
     
     # Get the ID
-    
     temp_str <- strsplit(o, "Parking Lot\nProvidence 2", fixed = TRUE)
     #print(temp_str[[1]][2])
     temp_str <- substr(temp_str[[1]][2], 1, 13)
