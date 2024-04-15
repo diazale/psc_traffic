@@ -234,7 +234,14 @@ out_path <- file.path("police_reports/ocr/extracted",
 
 ##### Parse make/model #####
 # Look for keyword "Plate Type" and take the next line
-# "Plate Type" is the last string to appear before the vehicle's Make/Model
+# "Plate Type" is the last string to appear before the vehicle's Make/Model (in some cases, anyway)
+
+fname <- "20240326130157142.txt"
+#fname <- "20240326125838933.txt"
+#fname <- "20240326130157142.txt"
+
+ocr_text <- scan(file.path(fdir, fname), character() )
+
 
 kw <- "Plate Type"
 kw_start <- "Plate Type\n"
@@ -276,13 +283,14 @@ for (o in ocr_text){
     vehicle_vec <- c(vehicle_vec, temp_str)
     
     # Get the ID
-    #temp_str <- strsplit(o, "Parking Lot\nProvidence ", fixed = TRUE)
-    #temp_str <- substr(temp_str[[1]][1], nchar(temp_str[[1]][1])-12, nchar(temp_str[[1]][1]))
     
-    #id_vec <- c(id_vec, temp_str)
+    temp_str <- strsplit(o, "Parking Lot\nProvidence 2", fixed = TRUE)
+    #print(temp_str[[1]][2])
+    temp_str <- substr(temp_str[[1]][2], 1, 13)
+    temp_str <- substr(temp_str[[1]][1], nchar(temp_str[[1]][1])-12, nchar(temp_str[[1]][1]))
+    
+    id_vec <- c(id_vec, temp_str)
     
     #print(o)
   }
 }
-
-grepl("Plate Type", ocr_text[2], fixed = TRUE)
